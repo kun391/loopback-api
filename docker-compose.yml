@@ -1,0 +1,21 @@
+version: "2"
+services:
+  api:
+    build: .
+    volumes:
+      - .:/usr/app
+    ports:
+      - "3000:3000"
+    environment:
+      - ENV=dev
+    entrypoint: |
+      bash -c 'bash -s <<EOF
+
+      sl-pm --base /usr/app --listen 3000
+      EOF'
+  mongo:
+    image: mongo:3
+    volumes:
+      - ./dump:/db/dump
+    ports:
+      - 37017:27017
