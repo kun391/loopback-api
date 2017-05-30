@@ -1,5 +1,4 @@
 FROM node:7
-
 MAINTAINER KUN <nguyentruongthanh.dn@gmail.com>
 
 USER root
